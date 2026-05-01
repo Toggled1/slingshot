@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2r0e8q501jxf"]
+
+[ext_resource type="Script" path="res://home.gd" id="1_l1bvx"]
+[ext_resource type="FontFile" uid="uid://d4kegpdtwi153" path="res://images/fff-forward/FFFFORWA.TTF" id="2_axxke"]
+[ext_resource type="Texture2D" uid="uid://bbroxqgchktnd" path="res://images/Untitled design (3).png" id="2_irtc0"]
+[ext_resource type="Texture2D" uid="uid://h4b5n4ucltx8" path="res://images/slingshot-2023-12-10 (1).png" id="4_c2ocu"]
+[ext_resource type="AudioStream" uid="uid://bx6vllbidp81i" path="res://sound/mixkit-game-ball-tap-2073.wav" id="5_rflf2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p2g62"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eaptu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tugdx"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksyr1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0l4tb"]
+light_mode = 1
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l1bvx")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background" type="Sprite2D" parent="Control"]
+position = Vector2(566, 323)
+scale = Vector2(0.616667, 0.616667)
+texture = ExtResource("2_irtc0")
+
+[node name="Quit" type="Button" parent="Control"]
+material = SubResource("CanvasItemMaterial_p2g62")
+layout_mode = 0
+offset_left = 47.0
+offset_top = 454.0
+offset_right = 173.0
+offset_bottom = 522.0
+theme_override_colors/font_pressed_color = Color(0.894118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_axxke")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eaptu")
+text = "Quit"
+flat = true
+
+[node name="Start" type="Button" parent="Control"]
+material = SubResource("CanvasItemMaterial_tugdx")
+layout_mode = 0
+offset_left = 49.0
+offset_top = 231.0
+offset_right = 178.0
+offset_bottom = 304.0
+theme_override_colors/font_pressed_color = Color(0, 0.788235, 0, 1)
+theme_override_fonts/font = ExtResource("2_axxke")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksyr1")
+text = "Play"
+flat = true
+
+[node name="Credits" type="Button" parent="Control"]
+material = SubResource("CanvasItemMaterial_tugdx")
+layout_mode = 0
+offset_left = 18.0
+offset_top = 348.0
+offset_right = 286.0
+offset_bottom = 411.0
+theme_override_colors/font_pressed_color = Color(0, 0.788235, 0, 1)
+theme_override_fonts/font = ExtResource("2_axxke")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksyr1")
+text = "Credits"
+flat = true
+
+[node name="spriteLogo" type="Sprite2D" parent="Control"]
+material = SubResource("CanvasItemMaterial_0l4tb")
+position = Vector2(286, 89)
+scale = Vector2(0.603916, 0.603916)
+texture = ExtResource("4_c2ocu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323.99)
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rflf2")
+pitch_scale = 1.7
+
+[connection signal="mouse_entered" from="Control/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Control/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Control/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="pressed" from="Control/Credits" to="." method="_on_credits_pressed"]

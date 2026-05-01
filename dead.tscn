@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://fa3fdfi7pdvb"]
+
+[ext_resource type="FontFile" uid="uid://d4kegpdtwi153" path="res://images/fff-forward/FFFFORWA.TTF" id="1_3edrl"]
+[ext_resource type="Script" path="res://dead.gd" id="1_y3krj"]
+[ext_resource type="Texture2D" uid="uid://ebo5vc8ls7cp" path="res://images/Untitled design (4).png" id="2_3dray"]
+[ext_resource type="AudioStream" uid="uid://bx6vllbidp81i" path="res://sound/mixkit-game-ball-tap-2073.wav" id="4_syrc4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7inwg"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t86j"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cs2qg"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5tek"]
+
+[node name="Dead" type="Node2D"]
+script = ExtResource("1_y3krj")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(579, 323)
+scale = Vector2(0.606019, 0.606019)
+texture = ExtResource("2_3dray")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Retry" type="Button" parent="Control"]
+material = SubResource("CanvasItemMaterial_7inwg")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 324.0
+offset_top = 52.0
+offset_right = 1242.0
+offset_bottom = 158.0
+theme_override_fonts/font = ExtResource("1_3edrl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7t86j")
+text = "   Retry"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="Button" parent="Control"]
+material = SubResource("CanvasItemMaterial_cs2qg")
+layout_mode = 0
+offset_left = 324.0
+offset_top = 195.0
+offset_right = 1237.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.270588, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_3edrl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m5tek")
+text = "   Back to levels"
+alignment = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575.985, 324)
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_syrc4")
+pitch_scale = 1.7
+
+[connection signal="mouse_entered" from="Control/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Retry" to="." method="_on_retry_mouse_exited"]
+[connection signal="pressed" from="Control/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Control/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]

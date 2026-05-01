@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://df53gejx6tb0f"]
+
+[ext_resource type="FontFile" uid="uid://d4kegpdtwi153" path="res://images/fff-forward/FFFFORWA.TTF" id="1_qr30i"]
+
+[resource]
+default_font = ExtResource("1_qr30i")
+default_font_size = 120

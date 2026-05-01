@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://xbj6aw3udh0o"]
+
+[ext_resource type="Script" path="res://Saw.gd" id="1_aqwaa"]
+[ext_resource type="Texture2D" uid="uid://bxnlw41fjdo0w" path="res://images/Environment.png" id="2_bw6ii"]
+[ext_resource type="Texture2D" uid="uid://3yxalcdjl4it" path="res://images/light.png" id="3_f8ckj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_270fo"]
+radius = 19.105
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0q8sm"]
+polygon = PackedVector2Array(-1, 22, 1, 22, 1, 13, 6, 13, 6, 18, 8, 18, 8, 8, 18, 8, 18, 6, 13, 6, 13, 2, 13, 1, 22, 1, 22, -1, 13, -1, 13, -6, 18, -6, 18, -8, 8, -8, 8, -18, 6, -18, 6, -13, 2, -13, 1, -13, 1, -22, -1, -22, -1, -13, -6, -13, -6, -18, -8, -18, -8, -8, -18, -8, -18, -6, -13, -6, -13, -2, -13, -1, -22, -1, -22, 1, -13, 1, -13, 6, -18, 6, -18, 8, -8, 8, -8, 18, -6, 18, -6, 13, -1, 13)
+
+[node name="Saw" type="Node2D" groups=["coll"]]
+scale = Vector2(3.21, 3.21)
+script = ExtResource("1_aqwaa")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("2_bw6ii")
+region_enabled = true
+region_rect = Rect2(145, 1105, 46, 46)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["coll"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["coll"]]
+shape = SubResource("CircleShape2D_270fo")
+
+[node name="PointLight2D" type="PointLight2D" parent="StaticBody2D"]
+energy = 0.65
+texture = ExtResource("3_f8ckj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_0q8sm")

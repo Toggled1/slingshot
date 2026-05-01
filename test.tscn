@@ -1,0 +1,231 @@
+[gd_scene load_steps=11 format=3 uid="uid://cn283h051gakf"]
+
+[ext_resource type="AudioStream" uid="uid://bx6vllbidp81i" path="res://sound/mixkit-game-ball-tap-2073.wav" id="2_nxcan"]
+[ext_resource type="AudioStream" uid="uid://bk7ub8tvsdboi" path="res://sound/mixkit-mechanical-crate-pick-up-3154.mp3" id="3_b78ic"]
+[ext_resource type="Texture2D" uid="uid://3yxalcdjl4it" path="res://images/light.png" id="4_jorwf"]
+[ext_resource type="Theme" uid="uid://df53gejx6tb0f" path="res://ballgamestheme.tres" id="5_46f1i"]
+[ext_resource type="Texture2D" uid="uid://cn347gol06qrm" path="res://images/slot.png" id="6_kx8wo"]
+[ext_resource type="Texture2D" uid="uid://bophs15cr12ja" path="res://images/bluegem.png" id="7_eosjc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wjqqs"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_omyx7"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n878t"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hfrfs"]
+light_mode = 1
+
+[node name="levelcomplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nxcan")
+pitch_scale = 1.7
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323.985)
+
+[node name="gemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b78ic")
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Control" type="Control" parent="VScrollBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="VScrollBar/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="rect_time" type="ColorRect" parent="VScrollBar/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -6.76999
+offset_right = 1044.0
+offset_bottom = 179.23
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 0.654902)
+
+[node name="rect_buttons" type="ColorRect" parent="VScrollBar/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = 427.49
+offset_right = 1044.0
+offset_bottom = 613.493
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 0.654902)
+
+[node name="rect_top" type="ColorRect" parent="VScrollBar/Control"]
+material = SubResource("CanvasItemMaterial_wjqqs")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1173.22
+offset_top = 173.2
+offset_right = 2048.22
+offset_bottom = 187.2
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 0.207843, 0.184314, 1)
+
+[node name="rect_bottom" type="ColorRect" parent="VScrollBar/Control"]
+material = SubResource("CanvasItemMaterial_wjqqs")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -920.0
+offset_top = 379.935
+offset_right = -45.0
+offset_bottom = 393.935
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 0.207843, 0.184314, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="VScrollBar/Control"]
+position = Vector2(690.656, -61.9129)
+scale = Vector2(0.999312, 1)
+color = Color(1, 0.705882, 0.164706, 1)
+energy = 6.08
+blend_mode = 2
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("4_jorwf")
+texture_scale = 4.08
+
+[node name="CanvasModulate" type="CanvasModulate" parent="VScrollBar/Control"]
+position = Vector2(578, 581)
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="CompleteLabel" type="Label" parent="VScrollBar/Control"]
+material = SubResource("CanvasItemMaterial_omyx7")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.321
+offset_top = 28.266
+offset_right = 990.321
+offset_bottom = 196.266
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(434.215, 207.925)
+theme = ExtResource("5_46f1i")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.466667)
+text = "YOUR TIME"
+horizontal_alignment = 1
+
+[node name="Next" type="Button" parent="VScrollBar/Control"]
+layout_mode = 0
+offset_left = 595.363
+offset_top = 465.331
+offset_right = 893.363
+offset_bottom = 569.331
+scale = Vector2(1.455, 1.455)
+theme = ExtResource("5_46f1i")
+theme_override_colors/font_color = Color(0.0352941, 1, 0.356863, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n878t")
+text = "Next"
+
+[node name="Retry" type="Button" parent="VScrollBar/Control"]
+layout_mode = 0
+offset_left = 124.897
+offset_top = 465.331
+offset_right = 422.897
+offset_bottom = 569.331
+scale = Vector2(1.455, 1.455)
+theme = ExtResource("5_46f1i")
+theme_override_colors/font_color = Color(1, 0.121569, 0.988235, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n878t")
+text = "Retry"
+
+[node name="Slot1" type="Sprite2D" parent="VScrollBar/Control"]
+material = SubResource("CanvasItemMaterial_hfrfs")
+position = Vector2(267.165, 321.94)
+scale = Vector2(12.2973, 12.2973)
+texture = ExtResource("6_kx8wo")
+region_enabled = true
+region_rect = Rect2(6.26788, 0.782631, 21.6209, 22.2965)
+
+[node name="Gem1" type="Sprite2D" parent="VScrollBar/Control/Slot1"]
+material = SubResource("CanvasItemMaterial_hfrfs")
+position = Vector2(0.000125885, 0.000432968)
+texture = ExtResource("7_eosjc")
+region_enabled = true
+region_rect = Rect2(6.26788, 0.782631, 21.6209, 22.2965)
+
+[node name="Slot2" type="Sprite2D" parent="VScrollBar/Control"]
+material = SubResource("CanvasItemMaterial_hfrfs")
+position = Vector2(575.35, 321.94)
+scale = Vector2(16.827, 16.827)
+texture = ExtResource("6_kx8wo")
+region_enabled = true
+region_rect = Rect2(6.26788, 0.782631, 21.6209, 22.2965)
+
+[node name="Gem2" type="Sprite2D" parent="VScrollBar/Control/Slot2"]
+material = SubResource("CanvasItemMaterial_hfrfs")
+position = Vector2(0.000125885, 0.000432968)
+texture = ExtResource("7_eosjc")
+region_enabled = true
+region_rect = Rect2(6.26788, 0.782631, 21.6209, 22.2965)
+
+[node name="Slot3" type="Sprite2D" parent="VScrollBar/Control"]
+material = SubResource("CanvasItemMaterial_hfrfs")
+position = Vector2(889.006, 321.94)
+scale = Vector2(12.2973, 12.2973)
+texture = ExtResource("6_kx8wo")
+region_enabled = true
+region_rect = Rect2(6.26788, 0.782631, 21.6209, 22.2965)
+
+[node name="Gem3" type="Sprite2D" parent="VScrollBar/Control/Slot3"]
+material = SubResource("CanvasItemMaterial_hfrfs")
+position = Vector2(0.000125885, 0.000432968)
+texture = ExtResource("7_eosjc")
+region_enabled = true
+region_rect = Rect2(6.26788, 0.782631, 21.6209, 22.2965)
+
+[connection signal="mouse_entered" from="VScrollBar/Control/Next" to="." method="_on_next_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VScrollBar/Control/Next" to="." method="_on_next_mouse_exited" flags=18]
+[connection signal="pressed" from="VScrollBar/Control/Next" to="." method="_on_next_pressed" flags=18]
+[connection signal="mouse_entered" from="VScrollBar/Control/Retry" to="." method="_on_retry_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VScrollBar/Control/Retry" to="." method="_on_retry_mouse_exited" flags=18]
+[connection signal="pressed" from="VScrollBar/Control/Retry" to="." method="_on_retry_pressed" flags=18]

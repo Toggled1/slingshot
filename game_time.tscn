@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://cveu8mim7seyo"]
+
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="1_8ofy8"]
+[ext_resource type="Theme" uid="uid://df53gejx6tb0f" path="res://ballgamestheme.tres" id="2_jfmqq"]
+[ext_resource type="AudioStream" uid="uid://du7rp6sxjbcy0" path="res://sound/mixkit-race-countdown-1953.mp3" id="3_bl887"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4mfjn"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_pj3or"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Countdown:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Countdown:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6gjy6"]
+resource_name = "countdownfade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Countdown:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Countdown:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.245, 0.245)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v13au"]
+_data = {
+"RESET": SubResource("Animation_pj3or"),
+"countdownfade": SubResource("Animation_6gjy6")
+}
+
+[node name="GameTime" type="Node2D"]
+script = ExtResource("1_8ofy8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 918.0
+offset_top = 10.0
+offset_right = 1141.0
+offset_bottom = 118.0
+
+[node name="seconds" type="Label" parent="CanvasLayer/Panel"]
+material = SubResource("CanvasItemMaterial_4mfjn")
+layout_mode = 0
+offset_left = -89.0
+offset_top = 21.0
+offset_right = 136.0
+offset_bottom = 129.0
+theme = ExtResource("2_jfmqq")
+theme_override_font_sizes/font_size = 66
+text = "00."
+horizontal_alignment = 2
+
+[node name="msec" type="Label" parent="CanvasLayer/Panel"]
+material = SubResource("CanvasItemMaterial_4mfjn")
+layout_mode = 0
+offset_left = 37.0
+offset_top = 55.0
+offset_right = 217.0
+offset_bottom = 156.0
+theme = ExtResource("2_jfmqq")
+theme_override_font_sizes/font_size = 36
+text = "000"
+horizontal_alignment = 2
+
+[node name="Countdown" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -241.3
+offset_right = 175.5
+offset_bottom = 250.7
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(175.52, 241.435)
+theme = ExtResource("2_jfmqq")
+theme_override_font_sizes/font_size = 90
+text = "Ready"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_v13au")
+}
+
+[node name="countdownAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bl887")
+volume_db = -11.143
+pitch_scale = 1.38

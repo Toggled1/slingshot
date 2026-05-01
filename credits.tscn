@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://fx6nmo5d2l8u"]
+
+[ext_resource type="Texture2D" uid="uid://d1qakty68ofvg" path="res://images/backgroundcomplete.png" id="1_askgw"]
+[ext_resource type="Script" path="res://credits.gd" id="1_v3ecg"]
+[ext_resource type="Texture2D" uid="uid://h4b5n4ucltx8" path="res://images/slingshot-2023-12-10 (1).png" id="2_jqnww"]
+[ext_resource type="Theme" uid="uid://df53gejx6tb0f" path="res://ballgamestheme.tres" id="3_cxdt0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q1h5x"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gi4lp"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fede4"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux2bi"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_v3ecg")
+
+[node name="Backgroundcomplete" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.541176, 0.552941, 1)
+position = Vector2(586.833, 678.678)
+scale = Vector2(0.830032, 0.830032)
+texture = ExtResource("1_askgw")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(1152, 1072.13)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 1072.13
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_q1h5x")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 213.744
+offset_top = 44.0301
+offset_right = 932.744
+offset_bottom = 202.03
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.623529, 0.396078, 0.831373)
+
+[node name="ColorRect5" type="ColorRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_q1h5x")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 214.0
+offset_top = 229.0
+offset_right = 933.0
+offset_bottom = 596.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.623529, 0.396078, 0.831373)
+
+[node name="ColorRect4" type="ColorRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_q1h5x")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 228.744
+offset_top = 58.0301
+offset_right = 920.744
+offset_bottom = 189.03
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.458824, 0.294118, 0.976471)
+
+[node name="ColorRect11" type="ColorRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_q1h5x")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 230.0
+offset_top = 244.0
+offset_right = 922.0
+offset_bottom = 585.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.623529, 0.396078, 0.831373)
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(475.861, 127.573)
+scale = Vector2(0.539912, 0.539912)
+texture = ExtResource("2_jqnww")
+
+[node name="CompanyLabel" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_gi4lp")
+offset_left = 717.857
+offset_top = 153.587
+offset_right = 913.857
+offset_bottom = 195.587
+pivot_offset = Vector2(434.215, 207.925)
+theme = ExtResource("3_cxdt0")
+theme_override_colors/font_color = Color(0.823529, 1, 0.870588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.466667)
+theme_override_font_sizes/font_size = 21
+text = "-by GcsGames"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_gi4lp")
+offset_left = 255.0
+offset_top = 266.0
+offset_right = 896.0
+offset_bottom = 572.0
+pivot_offset = Vector2(434.215, 207.925)
+theme = ExtResource("3_cxdt0")
+theme_override_colors/font_color = Color(0.823529, 1, 0.870588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.466667)
+theme_override_font_sizes/font_size = 21
+text = "Slingshot was made without the use of any AI  :)
+
+Use your mouse to drag and release to jump!
+
+If you want to restart a level mid-game, press 'r'"
+
+[node name="Back" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_fede4")
+offset_left = -121.0
+offset_top = 33.0
+offset_right = 239.0
+offset_bottom = 110.0
+theme = ExtResource("3_cxdt0")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ux2bi")
+text = "Back  "
+alignment = 2
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

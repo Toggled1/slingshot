@@ -1,0 +1,221 @@
+[gd_scene load_steps=17 format=3 uid="uid://bskldfjunisbu"]
+
+[ext_resource type="Theme" uid="uid://df53gejx6tb0f" path="res://ballgamestheme.tres" id="1_d7b6l"]
+[ext_resource type="Script" path="res://levelselect.gd" id="1_gtx3s"]
+[ext_resource type="Texture2D" uid="uid://3yxalcdjl4it" path="res://images/light.png" id="1_vpfrh"]
+[ext_resource type="Texture2D" uid="uid://cu12avg02v1ah" path="res://images/Untitled design (6).png" id="2_bebrc"]
+[ext_resource type="AudioStream" uid="uid://bx6vllbidp81i" path="res://sound/mixkit-game-ball-tap-2073.wav" id="5_tjtj6"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ghrh8"]
+polygon = PackedVector2Array(477, 204, 668, 204, 668, 446, 476, 446, 476, 204)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bpt5d"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubdje"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qk71n"]
+light_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jjjd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mf5yb"]
+light_mode = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onk1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7yck"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ou8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwpu5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0wb0"]
+
+[node name="levelselect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtx3s")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(566, 323)
+scale = Vector2(0.616667, 0.616667)
+texture = ExtResource("2_bebrc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -130.0
+offset_right = 105.5
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(106.1, 114.21)
+color = Color(0.964706, 0.705882, 0.815686, 0.721569)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -1)
+color = Color(0.964706, 0.705882, 0.815686, 1)
+energy = 5.22
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("1_vpfrh")
+texture_scale = 4.3
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(4.025, 0)
+occluder = SubResource("OccluderPolygon2D_ghrh8")
+
+[node name="LightOccluder2alt" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2(-52.785, -32.595)
+scale = Vector2(1.1, 1.1)
+occluder = SubResource("OccluderPolygon2D_ghrh8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(129, 83)
+color = Color(0.259294, 0.259294, 0.259294, 1)
+
+[node name="Back" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_bpt5d")
+layout_mode = 0
+offset_left = -121.0
+offset_top = 33.0
+offset_right = 239.0
+offset_bottom = 110.0
+theme = ExtResource("1_d7b6l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ubdje")
+text = "Back  "
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 544.85
+offset_top = 270.0
+offset_right = 2734.85
+offset_bottom = 443.0
+theme_override_constants/separation = 140
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+material = SubResource("CanvasItemMaterial_qk71n")
+layout_mode = 2
+theme = ExtResource("1_d7b6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6jjjd")
+disabled = true
+text = "1"
+flat = true
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+material = SubResource("CanvasItemMaterial_qk71n")
+layout_mode = 2
+theme = ExtResource("1_d7b6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6jjjd")
+disabled = true
+text = "2"
+flat = true
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+material = SubResource("CanvasItemMaterial_qk71n")
+layout_mode = 2
+theme = ExtResource("1_d7b6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6jjjd")
+disabled = true
+text = "3"
+flat = true
+
+[node name="Button4" type="Button" parent="HBoxContainer"]
+material = SubResource("CanvasItemMaterial_qk71n")
+layout_mode = 2
+theme = ExtResource("1_d7b6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6jjjd")
+disabled = true
+text = "4"
+flat = true
+
+[node name="Button5" type="Button" parent="HBoxContainer"]
+material = SubResource("CanvasItemMaterial_qk71n")
+layout_mode = 2
+theme = ExtResource("1_d7b6l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6jjjd")
+disabled = true
+text = "5"
+flat = true
+
+[node name="Left button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_mf5yb")
+layout_mode = 0
+offset_left = 492.545
+offset_top = 652.0
+offset_right = 622.544
+offset_bottom = 825.0
+rotation = -3.14159
+theme = ExtResource("1_d7b6l")
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.643137, 0.545098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onk1q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u7yck")
+text = ">"
+flat = true
+
+[node name="Right button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_mf5yb")
+layout_mode = 0
+offset_left = 660.335
+offset_top = 480.0
+offset_right = 790.335
+offset_bottom = 653.0
+theme = ExtResource("1_d7b6l")
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.643137, 0.545098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ou8g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hwpu5")
+text = ">"
+flat = true
+
+[node name="Oversize" type="Button" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 198.0
+offset_right = 674.0
+offset_bottom = 451.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o0wb0")
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323.985)
+position_smoothing_speed = 1.305
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tjtj6")
+pitch_scale = 1.7
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Left button" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="Right button" to="." method="_on_right_button_pressed"]
+[connection signal="mouse_entered" from="Oversize" to="." method="_on_oversize_mouse_entered"]
+[connection signal="mouse_exited" from="Oversize" to="." method="_on_oversize_mouse_exited"]
+[connection signal="pressed" from="Oversize" to="." method="_on_oversize_pressed"]
