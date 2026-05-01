@@ -12,11 +12,9 @@ After completing a level, you receive a star rating based on your completion tim
 
 The game is all about precision and timing. Use your mouse to carefully aim your shot and adjust power based on drag distance.
 
-![Menu](slingshot/gameplay_images/menu.png)
+![Menu](gameplay_images/menu.png)
 
-![Death](slingshot/gameplay_images/death.png)
-
-![Level 4](slingshot/gameplay_images/level4.png)
+![Death](gameplay_images/death.png)
 
 ---
 
@@ -27,7 +25,7 @@ The game is all about precision and timing. Use your mouse to carefully aim your
 - **Release mouse button**: Launch the player  
 - **R**: Restart the current level  
 
-![Controls](slingshot/gameplay_images/controls.png)
+![Controls](gameplay_images/controls.png)
 
 ---
 
@@ -35,4 +33,4 @@ The game is all about precision and timing. Use your mouse to carefully aim your
 
 Slingshot combines simple mouse controls with physics-based movement to create a fast, skill-based gameplay loop focused on precision and speed.
 
-![About](slingshot/gameplay_images/about.png)
+![About](gameplay_images/about.png)
